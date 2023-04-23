@@ -13,7 +13,7 @@ CREATE Table pessoas(
     PRIMARY KEY (id)
 ) DEFAULT CHARSET = utf8;
 
-INSERT into pessoas VALUES      --usar para inserir pessoas na tabela
+INSERT into pessoas VALUES      --usar para inserir linhas na tabela
 ('6','Messi', '1987-06-24', 'M', '72.0', '1.70','Argentina'),
 ('7','Neymar', '1992-02-05', 'M', '68.0', '1.75','Brasil');
 
@@ -44,7 +44,7 @@ RENAME to pessoas;      --para renomear uma tabela
 
 
 CREATE Table if NOT exists cursos(          --so vai criar essas tabela se ela não exixtir
-nome VARCHAR(30) not NULL UNIQUE,
+nome VARCHAR(100) not NULL UNIQUE,
 descricao TEXT,
 carga INT UNSIGNED,
 totAulas INT UNSIGNED,
@@ -59,6 +59,45 @@ CHANGE COLUMN id idCurso INT;          --renomeando a coluna do ID
 
 ALTER TABLE cursos
 add PRIMARY KEY (idCurso);      --para transformar o idCurso em PK
+
+INSERT INTO cursos VALUES       --inserindo dados errados na tabela cursos
+('1','HTML4','Cursos de HTML5','40','37','2014'),
+('2','Algoritimos','Lógica de programação','20','15','2014'),
+('3','Photoshop','Dicas de Photoshop CC','10','8','2014'),
+('4','PGP','Curso de PHP para iniciantes','40','20','2010'),
+('5','Jarva','Introdução à linguava Java','10','29','2000'),
+('6','MySQL','Banco de Dados MYSQL','30','15','2016'),
+('7','Word','Curso completo de Word','40','30','2016'),
+('8','Sapateado','Dança Rítmicas','40','30','2018'),
+('9','Cozinha Árabe','Aprenda a fazer Kibe','40','30','2018'),
+('10','YouTuber','Gerar polêmicas e ganhar inscritos','5','2','2018');
+
+UPDATE cursos           --corrigindo os erros
+set nome = 'HTML5'
+WHERE idCurso = '4';
+
+UPDATE cursos           --corrigindo os erros
+set nome = 'PHP', ano = '2015'
+WHERE idCurso = '4';
+
+UPDA TE cursos           --corrigindo os erros
+set nome = 'Java', carga = '40', ano = '2015'
+WHERE idCurso = '5'
+LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
